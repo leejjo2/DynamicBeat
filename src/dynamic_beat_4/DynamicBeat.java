@@ -49,7 +49,6 @@ public class DynamicBeat extends JFrame {
 				exitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
 				buttonEnteredMusic.start();
-				
 
 			}
 
@@ -65,13 +64,13 @@ public class DynamicBeat extends JFrame {
 				buttonPressedMusic.start();
 				try {
 					Thread.sleep(1000);
-				} catch(InterruptedException ex) {
+				} catch (InterruptedException ex) {
 					ex.printStackTrace();
 				}
 				System.exit(0);
 			}
 		});
-	
+
 		add(exitButton);
 
 		menuBar.setBounds(0, 0, 1280, 30);
