@@ -6,6 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/ASUS/OneDrive/바탕 화면/jlayer-1.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/study/work/self_study/DynamicBeat/jlayer-1.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
