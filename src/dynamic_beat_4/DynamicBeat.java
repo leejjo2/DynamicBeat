@@ -15,18 +15,24 @@ import javax.swing.JLabel;
 
 public class DynamicBeat extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Image screenImage;
 	private Graphics screenGraphic;
 
 	private ImageIcon exitButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/exitButtonEntered.png"));
 	private ImageIcon exitButtonBasicImage = new ImageIcon(Main.class.getResource("../images/exitButtonBasic.png"));
-	private Image introBackground = new ImageIcon(Main.class.getResource("../images/introBackground.jpg")).getImage();
+	
+	private Image introBackground = new ImageIcon(Main.class.getResource("../images/IntroBackground.jpg"))
+			.getImage();
 	private JLabel menuBar = new JLabel(new ImageIcon(Main.class.getResource("../images/menuBar.png")));
 
 	private JButton exitButton = new JButton(exitButtonBasicImage);
-
+	
 	private int mouseX, mouseY;
-
+	
 	public DynamicBeat() {
 		setUndecorated(true);
 		setTitle("Dynamic Beat");
@@ -49,19 +55,16 @@ public class DynamicBeat extends JFrame {
 				exitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
 				buttonEnteredMusic.start();
-
 			}
-
 			@Override
 			public void mouseExited(MouseEvent e) {
 				exitButton.setIcon(exitButtonBasicImage);
 				exitButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 			}
-
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
-				buttonPressedMusic.start();
+			public void mousePressed(MouseEvent e) {
+				Music buttonEnteredMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonEnteredMusic.start();
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException ex) {
@@ -70,9 +73,8 @@ public class DynamicBeat extends JFrame {
 				System.exit(0);
 			}
 		});
-
 		add(exitButton);
-
+		
 		menuBar.setBounds(0, 0, 1280, 30);
 		menuBar.addMouseListener(new MouseAdapter() {
 			@Override
@@ -80,7 +82,6 @@ public class DynamicBeat extends JFrame {
 				mouseX = e.getX();
 				mouseY = e.getY();
 			}
-
 		});
 		menuBar.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
@@ -88,15 +89,12 @@ public class DynamicBeat extends JFrame {
 				int x = e.getXOnScreen();
 				int y = e.getYOnScreen();
 				setLocation(x - mouseX, y - mouseY);
-
 			}
 		});
-
 		add(menuBar);
 
 		Music introMusic = new Music("introMusic.mp3", true);
 		introMusic.start();
-
 	}
 
 	public void paint(Graphics g) {
