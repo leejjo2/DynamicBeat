@@ -24,17 +24,17 @@ public class DynamicBeat extends JFrame {
 
 	private ImageIcon exitButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/exitButtonEntered.png"));
 	private ImageIcon exitButtonBasicImage = new ImageIcon(Main.class.getResource("../images/exitButtonBasic.png"));
-	private ImageIcon startButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/startButtonEntered.png"));
+	private ImageIcon startButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/startButtonEntered.png"));
 	private ImageIcon startButtonBasicImage = new ImageIcon(Main.class.getResource("../images/startButtonBasic.png"));
 	private ImageIcon quitButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/quitButtonEntered.png"));
 	private ImageIcon quitButtonBasicImage = new ImageIcon(Main.class.getResource("../images/quitButtonBasic.png"));
 	private ImageIcon leftButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/leftButtonEntered.png"));
 	private ImageIcon leftButtonBasicImage = new ImageIcon(Main.class.getResource("../images/leftButtonBasic.png"));
-	private ImageIcon rightButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/rigthButtonEntered.png"));
+	private ImageIcon rightButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/rightButtonEntered.png"));
 	private ImageIcon rightButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rightButtonBasic.png"));
 
+	private Image titleImage = new ImageIcon(Main.class.getResource("../images/Mighty Love Title Image.png"))
+			.getImage();
 	private Image selectedImage = new ImageIcon(Main.class.getResource("../images/Mighty Love Start Image.png"))
 			.getImage();
 	private Image background = new ImageIcon(Main.class.getResource("../images/introBackground.jpg")).getImage();
@@ -160,6 +160,7 @@ public class DynamicBeat extends JFrame {
 		});
 		add(quitButton);
 
+		leftButton.setVisible(false);
 		leftButton.setBounds(140, 310, 60, 60);
 		leftButton.setBorderPainted(false);
 		leftButton.setContentAreaFilled(false);
@@ -188,7 +189,8 @@ public class DynamicBeat extends JFrame {
 		});
 		add(leftButton);
 		
-		rightButton.setBounds(140, 310, 60, 60);
+		rightButton.setVisible(false);
+		rightButton.setBounds(1080, 310, 60, 60);
 		rightButton.setBorderPainted(false);
 		rightButton.setContentAreaFilled(false);
 		rightButton.setFocusPainted(false);
@@ -249,6 +251,7 @@ public class DynamicBeat extends JFrame {
 		g.drawImage(background, 0, 0, null);
 		if (isMainScreen) {
 			g.drawImage(selectedImage, 340, 100, null);
+			g.drawImage(titleImage, 340, 70, null);
 		}
 		paintComponents(g);
 		this.repaint();
