@@ -335,6 +335,7 @@ public class DynamicBeat extends JFrame {
 		selectedMusic = new Music(trackList.get(nowSelected).getStartMusic(), true);
 		selectedMusic.start();
 	}
+	
 	public void selectLeft() {
 		if(nowSelected == 0)
 			nowSelected = trackList.size() - 1;
